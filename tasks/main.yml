@@ -1,0 +1,22 @@
+#
+# setup aws dotfiles
+#
+- name: add default profile
+  lineinfile:
+    dest: ~/.aws/config
+    insertbefore: BOF
+    line: "[default]"
+    create: yes
+  tags:
+    - dotfiles_aws
+
+- name: update config
+  lineinfile:
+    dest: ~/.aws/config
+    regexp: '^{{ item.param }} *?='
+    insertafter: '{{ item.pos|replace("[", "\[")|replace("]", "\]") }}'
+    line: "{{ item.param }}={{ item.value }}"
+    create: yes
+  with_items: "{{ aws_dotfiles_config }}"
+  tags:
+    - dotfiles_aws
