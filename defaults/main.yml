@@ -1,0 +1,4 @@
+---
+aws_dotfiles_config:
+  - { param: 'aws_access_key_id', value: 'your_aws_access_key_id', pos: '[default]' }
+  - { param: 'aws_secret_access_key', value: 'your_aws_secret_access_key', pos: '[default]' }
