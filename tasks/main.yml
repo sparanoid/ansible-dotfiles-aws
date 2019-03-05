@@ -17,6 +17,6 @@
     insertafter: '{{ item.pos|replace("[", "\[")|replace("]", "\]") }}'
     line: "{{ item.param }}={{ item.value }}"
     create: yes
-  with_items: "{{ aws_dotfiles_config }}"
+  with_items: "{{ dotfiles_aws_config }}"
   tags:
     - dotfiles_aws
